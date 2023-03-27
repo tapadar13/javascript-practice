@@ -7,7 +7,7 @@ var triggeredCount = 0;
 
 const myDebounce = (fn, delay) => {
   let timer;
-  return (...args) => {
+  return function (...args) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       fn(...args);
@@ -16,12 +16,12 @@ const myDebounce = (fn, delay) => {
 };
 
 const debouncedCount = myDebounce(() => {
-  triggeredCount++;
+  triggeredCount += 1;
   count.innerHTML = triggeredCount;
 }, 1000);
 
 button.addEventListener("click", () => {
   btnPress.innerHTML = pressedCount++;
-});
 
-debouncedCount();
+  debouncedCount();
+});
