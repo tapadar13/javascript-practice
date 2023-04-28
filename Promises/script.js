@@ -18,20 +18,36 @@ let promise = new Promise(function (resolve, reject) {
 
 promise.then((success) => console, log(success));
 
-let promiseNew = new Promise(function (resolve, reject) {
+let promise2 = new Promise(function (resolve, reject) {
   setTimeout(() => reject(new Error("Whoops!")), 1000);
 });
 
-//Promise Chaining
+//--------------- Promise Chaining ----------------
+
+// then() method
 
 let example = new Promise(function (resolve, reject) {
   resolve("Promise resolved");
 });
 
 example
-  .then(function succesValue1(result) {
+  .then(function successValue1(result) {
     console.log(result);
   })
   .then(function successValue2() {
     console.log("We can call multiple functions like this");
+  });
+
+// catch() method
+
+let example2 = new Promise(function (resolve, reject) {
+  reject("Promise rejected");
+});
+
+example
+  .then(function successValue(result) {
+    console.log(result);
+  })
+  .catch(function (errorValue) {
+    console.log(result);
   });
