@@ -48,6 +48,6 @@ example
   .then(function successValue(result) {
     console.log(result);
   })
-  .catch(function (errorValue) {
+  .catch(function errorValue(result) {
     console.log(result);
   });
