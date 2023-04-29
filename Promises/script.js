@@ -44,10 +44,23 @@ let example2 = new Promise(function (resolve, reject) {
   reject("Promise rejected");
 });
 
-example
+example2
   .then(function successValue(result) {
     console.log(result);
   })
   .catch(function errorValue(result) {
     console.log(result);
+  });
+
+// finally() method
+
+let example3 = new Promise(function (resolve, reject) {
+  resolve("Promise resolved");
+});
+
+example3
+  .then((success) => {})
+  .catch((error) => {})
+  .finally(function greet() {
+    console.log("This code is executed");
   });
