@@ -18,12 +18,26 @@ function processRequest(response) {
   });
 }
 
-makeRequest("Google")
-  .then((response) => {
+// makeRequest("Google")
+//   .then((response) => {
+//     console.log("Response received");
+//     return processRequest(response);
+//   })
+//   .then((processedResponse) => {
+//     console.log(processedResponse);
+//   })
+//   .catch((error) => console.log(error));
+
+// --------------- Async-Await ---------------
+async function doRequest() {
+  try {
+    const response = await makeRequest("Google");
     console.log("Response received");
-    return processRequest(response);
-  })
-  .then((processedResponse) => {
-    console.log(processedResponse);
-  })
-  .catch((error) => console.log(error));
+    const data = await processRequest(response);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+doRequest();
